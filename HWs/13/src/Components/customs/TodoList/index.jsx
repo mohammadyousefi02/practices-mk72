@@ -25,11 +25,13 @@ const TodoList = () => {
     }
 
     function addTodo(){
-        const originalTodos = [...todos]
-        const newTodo = {title,id:genId()}
-        const newTodos = [...originalTodos,newTodo]
-        setTodos(newTodos)
-        setTitle("")
+        if(validateTodoInputValue()){
+            const originalTodos = [...todos]
+            const newTodo = {title,id:genId()}
+            const newTodos = [...originalTodos,newTodo]
+            setTodos(newTodos)
+            setTitle("")
+        }
     }
 
     function deleteTodo(id){
@@ -45,11 +47,13 @@ const TodoList = () => {
     }
 
     function editTodoHandler(){
-        const originalTodos = [...todos]
-        originalTodos[editedTodo].title = title;
-        setTodos(originalTodos)
-        setIsEditing(false)
-        setTitle("")
+        if(validateTodoInputValue()){
+            const originalTodos = [...todos]
+            originalTodos[editedTodo].title = title;
+            setTodos(originalTodos)
+            setIsEditing(false)
+            setTitle("")
+        }
     }
 
     function handleBtns(){
@@ -57,6 +61,10 @@ const TodoList = () => {
             isEditing ? <MyButton title="update" func={editTodoHandler}/> : 
             <MyButton title="add" func={addTodo}/>
         )
+    }
+
+    function validateTodoInputValue(){
+        return title ? true : false
     }
 
     return ( 
