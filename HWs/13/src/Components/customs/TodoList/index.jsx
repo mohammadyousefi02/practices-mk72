@@ -1,5 +1,8 @@
 import React,{useState} from 'react';
 
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Box } from '@mui/material';
 
 import TodoItem from '../TodoItem';
@@ -31,6 +34,8 @@ const TodoList = () => {
             const newTodos = [...originalTodos,newTodo]
             setTodos(newTodos)
             setTitle("")
+        }else{
+            toast.error("please enter some value")
         }
     }
 
@@ -53,6 +58,8 @@ const TodoList = () => {
             setTodos(originalTodos)
             setIsEditing(false)
             setTitle("")
+        }else{
+            toast.error("please enter some value")
         }
     }
 
@@ -68,6 +75,9 @@ const TodoList = () => {
     }
 
     return ( 
+        <>
+        <ToastContainer
+        autoClose={2000}/>
         <Box sx={styles.boxStyle}>
             <MainTodoListSection title={title} change={handleChangeInput} buttons={handleBtns}/>
             <Box>
@@ -76,6 +86,7 @@ const TodoList = () => {
                 ))}
             </Box>
         </Box>
+        </>
      );
 }
 
