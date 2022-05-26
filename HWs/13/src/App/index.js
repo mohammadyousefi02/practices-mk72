@@ -4,17 +4,28 @@ import '../assets/styles/styles.css'
 import TodoList from '../Components/customs/TodoList';
 function App() {
   return (
-    <Box sx={appStyle}>
+    <Box sx={styles.appStyle}>
+      <Box sx={styles.todoListContainer}>
         <TodoList/>
+      </Box>
     </Box>
   );
 }
 
-const appStyle = {
+
+const styles = {
+  appStyle: {
     width: '100%',
     height: '100%',
     display: 'flex',
-    justifyContent:'center',
-    alignItems: 'center',
+    flexDirection: 'column',
+},
+todoListContainer:{
+  flex:1,
+  display:"flex",
+  justifyContent:'center',
+  alignItems: 'center',
+  py:3
+}
 }
 export default App;
