@@ -1,0 +1,34 @@
+.cursor-pointer{
+    cursor: pointer !important;
+}
+
+.text-decoration-line-through{
+    text-decoration: line-through;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: .2rem;
+    border-radius: .2rem;
+    padding-left: .3rem;
+    padding-right: .3rem;
+}
+
+.green-btn-theme{
+    border: 1px solid green;
+    color: green;
+}
+
+.red-btn-theme{
+    border: 1px solid red;
+    color: red;
+}
+
+.done-btn{
+    background-color: green;
+    color: #fff;
+    border:1px solid rgb(80, 167, 80);
+}

@@ -1,0 +1,15 @@
+::placeholder {
+    color: black !important;
+}
+
+:-ms-input-placeholder {
+    color: black !important;
+}
+
+::-ms-input-placeholder {
+    color: black !important;
+}
+
+.css-k008qs{
+    height: 30px;
+}
