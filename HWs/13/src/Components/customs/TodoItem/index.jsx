@@ -27,7 +27,7 @@ const styles = {
     todoDiv:{
         display: 'flex',
         justifyContent: 'space-between',
-        bgcolor:hexGen(),
+        background:`linear-gradient(96deg, ${hexGen()}  0%, ${hexGen()} 100%)`,
         p:1,
         borderRadius:1,
         alignItems: 'center',
