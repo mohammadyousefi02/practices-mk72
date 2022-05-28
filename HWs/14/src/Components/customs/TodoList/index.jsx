@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 
 import {v4 as uuiv4} from "uuid"
 
@@ -13,12 +13,28 @@ import MyButton from '../MyButton';
 
 
 import "./todoList.css"
+import { selectUnstyledClasses } from '@mui/base';
 
 const TodoList = () => {
     const[title,setTitle] = useState("");
-    const[todos,setTodos] = useState([]);
+    const[todos,setTodos] = useState(getLocal());
     const[editedTodo,setEditedTodo] = useState(null)
-    const[isEditing,setIsEditing] = useState(false)
+    const[isEditing,setIsEditing] = useState(false) 
+
+    function getLocal(){
+        return JSON.parse(localStorage.getItem("todos")) || []
+    }
+
+    function saveToLocal(){
+        localStorage.setItem("todos",JSON.stringify(todos))
+       
+    }
+
+    useEffect(()=>{
+        console.log(todos)
+        saveToLocal()
+    },[todos])
+
 
     function handleChangeInput(value){
         setTitle(value)
@@ -78,7 +94,7 @@ const TodoList = () => {
         <Box sx={styles.boxStyle}>
             <MainTodoListSection title={title} change={handleChangeInput} buttons={handleBtns}/>
             <Box>
-                {todos.map(todo=>(
+                {todos?.map(todo=>(
                     <TodoItem title={todo.title} id={todo.id} editFunc={editTodoBtn} deleteFunc={deleteTodo} key={todo.id}/>
                 ))}
             </Box>
