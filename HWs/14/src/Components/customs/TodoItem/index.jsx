@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Box } from '@mui/material';
 import { TiDeleteOutline } from "react-icons/ti";
@@ -9,11 +9,14 @@ import "./todoItem.css"
 const hexGen = () => {
     return `#${Math.random().toString(16).slice(2,8)}`
 }
+
 const TodoItem = ({title,id,deleteFunc,editFunc}) => {
-
-
+    const[colors,setColors] = useState(null)
+    useEffect(()=>{
+        setColors({primary:hexGen(),secondary:hexGen()})
+    },[])
     return ( 
-        <Box sx={styles.todoDiv}>
+        <Box sx={[styles.todoDiv,{background:`linear-gradient(96deg, ${colors?.primary}  0%, ${colors?.secondary} 100%)`}]}>
             {title}
             <Box sx={{display:'flex',gap:'2px',fontSize:'16px'}}>
                 <TiDeleteOutline className='cursor-pointer' onClick={()=>deleteFunc(id)} />
@@ -27,7 +30,6 @@ const styles = {
     todoDiv:{
         display: 'flex',
         justifyContent: 'space-between',
-        background:`linear-gradient(96deg, ${hexGen()}  0%, ${hexGen()} 100%)`,
         p:1,
         borderRadius:1,
         alignItems: 'center',
