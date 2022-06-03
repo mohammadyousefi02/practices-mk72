@@ -1,0 +1,14 @@
+.default-btn{
+    background-color: #F0C041;
+    padding: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-item{
+    padding: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
