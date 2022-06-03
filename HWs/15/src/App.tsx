@@ -5,6 +5,7 @@ import { Box, Grid } from '@mui/material';
 import Header from './components/common/Header';
 import Products from './components/common/Products';
 import Cards from "./components/common/Cards"
+import Footer from './components/common/Footer';
 
 import data from "./data/data.json"
 import { IndexContext } from './context';
@@ -43,6 +44,11 @@ function App() {
     setTotal(parseFloat(total.toFixed(2)))
   }
 
+  function showModalHandler(data:Iproduct){
+    setClickedProduct(data)
+    setShowModal(true)
+  }
+
   function closeModal(){
     setShowModal(false)
   }
@@ -74,7 +80,7 @@ function App() {
     setCheckTotal(!checkTotal)
   }
   return (
-    <IndexContext.Provider value={{data:productsData,addToCart,cartList,removeHandler,total,closeModal}}>
+    <IndexContext.Provider value={{data:productsData,addToCart,cartList,removeHandler,total,closeModal,showModalHandler}}>
       <Box sx={styles.main}>
         <Header/>
         <Container>
@@ -87,6 +93,7 @@ function App() {
             </Grid>
           </Grid>
         </Container>
+        <Footer/>
       </Box>
       {showModal && <ProductModal data={clickedProduct}/>}
     </IndexContext.Provider>

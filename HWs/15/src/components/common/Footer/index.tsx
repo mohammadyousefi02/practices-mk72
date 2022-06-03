@@ -1,10 +1,10 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material';
 
-function Header():JSX.Element {
+function Footer():JSX.Element {
   return (
     <Box sx={styles.header}>
-        <Typography color="#fff">React Shopping Cart</Typography>
+        <Typography color="#fff">All right is reserved</Typography>
     </Box>
   )
 }
@@ -15,9 +15,10 @@ const styles = {
     height:"8%",
     display:"flex",
     alignItems:"center",
+    justifyContent:'center',
     px:2,
     py:1
   }
 }
 
-export default Header
+export default Footer

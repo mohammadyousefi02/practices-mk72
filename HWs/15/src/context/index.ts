@@ -8,5 +8,6 @@ export const IndexContext = createContext<IindexContext>({
     addToCart:(id:string):void=>{},
     removeHandler:(id:string):void=>{},
     total:0,
-    closeModal:()=>{}
+    closeModal:()=>{},
+    showModalHandler:(value:Iproduct)=>{}
 })
