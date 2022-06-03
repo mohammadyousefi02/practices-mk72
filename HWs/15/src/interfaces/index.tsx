@@ -16,5 +16,6 @@ export interface IindexContext {
     addToCart:(id:string)=>void,
     removeHandler:(id:string)=>void,
     cartList: TproductsList,
-    total:number
+    total:number,
+    closeModal:()=>void
 }

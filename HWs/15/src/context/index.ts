@@ -7,5 +7,6 @@ export const IndexContext = createContext<IindexContext>({
     cartList:[{id:"",url: "",description: "",price: "",size: [""]}],
     addToCart:(id:string):void=>{},
     removeHandler:(id:string):void=>{},
-    total:0
+    total:0,
+    closeModal:()=>{}
 })
