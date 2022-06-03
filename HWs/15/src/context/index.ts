@@ -9,5 +9,11 @@ export const IndexContext = createContext<IindexContext>({
     removeHandler:(id:string):void=>{},
     total:0,
     closeModal:()=>{},
-    showModalHandler:(value:Iproduct)=>{}
+    showModalHandler:(value:Iproduct)=>{},
+    filterValue:'',
+    changeFilter:(value:string)=>{},
+    orderValue:'',
+    changeOrder:(value:string)=>{},
+    setDatasLength:(value:number)=>{},
+    datasLength:0
 })

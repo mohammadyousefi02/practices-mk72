@@ -18,5 +18,11 @@ export interface IindexContext {
     cartList: TproductsList,
     total:number,
     closeModal:()=>void,
-    showModalHandler:(value:Iproduct)=>void
+    showModalHandler:(value:Iproduct)=>void,
+    filterValue:string,
+    changeFilter:(value:string)=>void,
+    orderValue:string,
+    changeOrder:(value:string)=>void,
+    setDatasLength:(value:number)=>void
+    datasLength:number
 }

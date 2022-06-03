@@ -16,7 +16,7 @@ body {
       monospace;
   }
 
-  html,body{
+  html,body,#root{
     height: 100%;
     width: 100%;
   }

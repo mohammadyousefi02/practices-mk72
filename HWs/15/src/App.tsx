@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { Box, Grid } from '@mui/material';
+import _ from "lodash";
 
 import Header from './components/common/Header';
 import Products from './components/common/Products';
@@ -14,6 +15,7 @@ import {TproductsList,Iproduct} from "./interfaces"
 import { Container } from '@mui/system';
 import ProductModal from './components/customs/ProductModal';
 
+
 console.log(data)
 
 function App() {
@@ -22,8 +24,11 @@ function App() {
   const [total,setTotal] = useState<number>(0)
   const [checkTotal,setCheckTotal] = useState<boolean>(false)
   const [clickedProduct,setClickedProduct] = useState<Iproduct>(productsData[0])
-  const [showModal,setShowModal] = useState<boolean>(true)
-  
+  const [showModal,setShowModal] = useState<boolean>(false)
+  const [filterValue,setFilterValue] = useState<string>("ALL")
+  const [orderValue,setOrderValue] = useState<string>("asc")
+  const [datasLength,setDatasLength] = useState<number>(0)
+
   useEffect(()=>{
     const copyData:TproductsList = [...data]
     copyData.forEach(d=>{
@@ -32,11 +37,26 @@ function App() {
     })
     setProductsData([...copyData])
     setClickedProduct(copyData[0])
+    checkOrder(copyData)
   },[])
 
   useEffect(()=>{
     calculateTotal()
   },[checkTotal])
+
+  function changeFilter(value:string){
+    setFilterValue(value)
+  }
+
+  function changeOrder(value:string){
+    setOrderValue(value)
+  }
+
+  function checkOrder(arr:any){
+    let a = _.orderBy(arr,["price"],["asc"])
+    console.log(a)
+  }
+
 
   function calculateTotal():void{
     let total:number = 0;
@@ -80,10 +100,10 @@ function App() {
     setCheckTotal(!checkTotal)
   }
   return (
-    <IndexContext.Provider value={{data:productsData,addToCart,cartList,removeHandler,total,closeModal,showModalHandler}}>
+    <IndexContext.Provider value={{data:productsData,addToCart,cartList,removeHandler,total,closeModal,showModalHandler,filterValue,changeFilter,orderValue,changeOrder,setDatasLength,datasLength}}>
       <Box sx={styles.main}>
         <Header/>
-        <Container>
+        <Container sx={{flex:1}}>
           <Grid container>
             <Grid item xs={9}>
               <Products/>
@@ -103,7 +123,9 @@ function App() {
 const styles = {
   main:{
     width:"100%",
-    height:"100%"
+    height:"100%",
+    display:'flex',
+    flexDirection:'column'
   }
 }
 
