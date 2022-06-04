@@ -7,7 +7,7 @@ import Header from "./Header"
 
 function Products():JSX.Element {
   return (
-      <Container>
+      <Container >
       <Box>
           <Header/>
           <ProductsList/>

@@ -16,7 +16,7 @@ const styles = {
     display:"flex",
     alignItems:"center",
     px:2,
-    py:1
+    py:3
   }
 }
 

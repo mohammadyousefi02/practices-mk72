@@ -13,7 +13,7 @@ interface Props {
 function ProductItem({data}:Props):JSX.Element {
   const {addToCart,showModalHandler} = useContext(IndexContext)
   return (
-    <Box sx={styles.productItem}>
+    <Box sx={styles.productItem} className="animation-fade-tb">
         <Box component="img" src={data.url} sx={styles.img} onClick={()=>showModalHandler(data)}/>
         <Typography sx={{textAlign:"center"}}>{data.description}</Typography>
         <Box sx={styles.footer}>
@@ -26,6 +26,7 @@ function ProductItem({data}:Props):JSX.Element {
 
 const styles = {
   productItem:{
+    with:"300px",
     py:1,
     cursor:'pointer',
     '&:hover':{

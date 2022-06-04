@@ -13,13 +13,15 @@ function CartCard({data}:Params) {
   const {removeHandler} = useContext(IndexContext)
 
   return (
-    <Box sx={styles.card}>
+    <Box sx={styles.card} className="animation-fade-lr">
             <Box sx={styles.cover} component="img" src={data.url} />
             <Box sx={styles.details}>
-                <Typography>{data.description}</Typography>
+                <Typography sx={{whiteSpace:'nowrap'}}>{data.description}</Typography>
                 <Box sx={styles.footer}>
-                    <Typography>${data.price} x {data.amount}</Typography>
-                    <MyButton click={()=>removeHandler(data.id)} title="remove" variant="remove-item"/>
+                    <Box sx={styles.footerElems}>
+                        <Typography>${data.price} x {data.amount}</Typography>
+                        <MyButton click={()=>removeHandler(data.id)} title="remove" variant="remove-item"/>
+                    </Box>
                 </Box>
             </Box>
     </Box>
@@ -45,11 +47,16 @@ const styles = {
         alignItems:"center"
     },
     footer:{
-        display:'flex',
-        gap:2,
-        alignItems:"center",
-        mt:2
+        width:'100%',
+        mt:2,
     },
+    footerElems:{
+        display:'flex',
+        alignItems:"center",
+        gap:1,
+        position:'relative',
+        left:'20%',
+    }
 }
 
 export default CartCard

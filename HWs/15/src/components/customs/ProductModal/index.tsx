@@ -13,18 +13,18 @@ function ProductModal({data}:Params):JSX.Element {
     console.log(data)
   return (
     <Box sx={styles.modal}>
-        <Box sx={styles.productModal}>
+        <Box sx={styles.productModal} className="animation-fade">
             <Box component="img" src={data?.url} sx={styles.cover}/>
-            <Box sx={{flex:1,px:3,py:2}}>
-                <Box sx={{display:'flex',justifyContent:'space-between'}}>
+            <Box sx={{flex:1,px:3,py:2,position:{sm:'static',xs:'relative'}}}>
+                <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:1}}>
                     <Typography>{data?.description}</Typography>
-                    <button onClick={closeModal}>close</button>
+                    <Box component="button" onClick={closeModal} sx={{px:1,height:"5%"}}>x</Box>
                 </Box>
                 <Typography sx={{mt:4}}>
                 This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.
                 </Typography>
-                <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center',mt:3,px:7}}>
-                    <Typography>Price : ${data?.price}</Typography>
+                <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center',mt:3,px:7,gap:1}}>
+                    <Typography sx={{whiteSpace:'nowrap'}}>Price : ${data?.price}</Typography>
                     <MyButton click={()=>{
                         addToCart(data?.id)
                         closeModal()
@@ -56,13 +56,14 @@ const styles = {
         height:'100%',
         pl:1,
         border:1,
-        display:"flex"
+        display:"flex",
+        position:'relative',
+        overflow:'auto'
     },
     cover:{
         height:'100%',
-        width:"35%",
-        objectFit:'cover'
-
+        width:{sm:'35%',xs:"90%"},
+        objectFit:'cover',
     }
 }
 

@@ -6,7 +6,7 @@ import {IndexContext} from "../../../../context"
 function Footer() {
   const {total} = useContext(IndexContext)
   return (
-    <Box sx={styles.footer}>
+    <Box sx={styles.footer} className="animation-fade-tb">
             <Typography>Total: ${total}</Typography>
             <MyButton title="Proceed"/>
     </Box>
@@ -18,8 +18,9 @@ const styles = {
         display:'flex',
         justifyContent:"space-between",
         alignItems:"center",
-        pr:5,
-        pl:1
+        pr:{xs:0,md:5},
+        pl:1,
+        pb:{xs:1,lg:0}
     }
 }
 

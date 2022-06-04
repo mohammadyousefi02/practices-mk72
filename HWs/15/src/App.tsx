@@ -104,11 +104,11 @@ function App() {
       <Box sx={styles.main}>
         <Header/>
         <Container sx={{flex:1}}>
-          <Grid container>
-            <Grid item xs={9}>
+          <Grid container justifyContent="center">
+            <Grid item lg={9} xs={12}>
               <Products/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item lg={3} sm={5} xs={12}>
               <Cards/>
             </Grid>
           </Grid>

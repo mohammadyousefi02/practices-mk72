@@ -18,7 +18,7 @@ function ProductsList():JSX.Element{
     <>
     <Grid container spacing={2} py={2}>
         {orderedData.map((d:Iproduct):any=>(
-          <Grid key={d.id} item xs={4}>
+          <Grid key={d.id} item md={4} xs={12} sm={6}>
             <ProductItem data={d}/>
           </Grid>
         ))}
