@@ -1,10 +1,12 @@
-import { Typography } from '@mui/material'
-import { Box } from '@mui/system'
 import React,{useContext} from 'react'
 
 import {Iproduct} from "../../../interfaces"
-import MyButton from '../MyButton'
 import {IndexContext} from "../../../context"
+
+import MyButton from '../MyButton'
+
+import { Typography } from '@mui/material'
+import { Box } from '@mui/system'
 
 interface Props {
     data:Iproduct

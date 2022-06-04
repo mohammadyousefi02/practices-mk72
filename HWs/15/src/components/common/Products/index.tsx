@@ -1,8 +1,11 @@
-import { Box, Container } from '@mui/system'
 import React from 'react'
-import ProductsList from '../../customs/ProductsList'
 
 import Header from "./Header"
+import ProductsList from '../../customs/ProductsList'
+
+import { Box, Container } from '@mui/system'
+
+
 
 
 function Products():JSX.Element {

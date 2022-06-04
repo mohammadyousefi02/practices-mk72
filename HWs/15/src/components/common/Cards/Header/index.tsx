@@ -1,7 +1,9 @@
+import React,{useContext} from 'react'
+
+import {IndexContext} from "../../../../context"
+
 import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React,{useContext} from 'react'
-import {IndexContext} from "../../../../context"
 
 function Header():JSX.Element {
   const {cartList} = useContext(IndexContext)

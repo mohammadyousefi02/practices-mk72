@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
-import { Box, Grid } from '@mui/material';
-import _ from "lodash";
+
+import {TproductsList,Iproduct} from "./interfaces"
+import { IndexContext } from './context';
+import data from "./data/data.json"
 
 import Header from './components/common/Header';
 import Products from './components/common/Products';
 import Cards from "./components/common/Cards"
 import Footer from './components/common/Footer';
-
-import data from "./data/data.json"
-import { IndexContext } from './context';
-
-import {TproductsList,Iproduct} from "./interfaces"
-import { Container } from '@mui/system';
 import ProductModal from './components/customs/ProductModal';
 
 
-console.log(data)
+import { Container } from '@mui/system';
+import { Box, Grid } from '@mui/material';
+import _ from "lodash";
+
 
 function App() {
   const [productsData,setProductsData] = useState<TproductsList>([])
@@ -37,7 +36,6 @@ function App() {
     })
     setProductsData([...copyData])
     setClickedProduct(copyData[0])
-    checkOrder(copyData)
   },[])
 
   useEffect(()=>{
@@ -52,10 +50,7 @@ function App() {
     setOrderValue(value)
   }
 
-  function checkOrder(arr:any){
-    let a = _.orderBy(arr,["price"],["asc"])
-    console.log(a)
-  }
+
 
 
   function calculateTotal():void{
@@ -80,7 +75,7 @@ function App() {
     addedCart.amount = addedCart.amount! + 1
     addedCart.total = addedCart.amount * parseFloat(addedCart.price);
     if(!cartList.includes(addedCart))setCartList([...cartList,addedCart])
-    console.log(cartList)
+  
     copyProductsData[index] = addedCart;
     setProductsData(copyProductsData)
     setCheckTotal(!checkTotal)

@@ -1,14 +1,21 @@
-import { Box, Typography } from '@mui/material'
 import React,{useContext} from 'react'
+
 import MyButton from '../../../customs/MyButton'
+
+import { Box, Typography } from '@mui/material'
+
 import {IndexContext} from "../../../../context"
 
-function Footer() {
+interface Params {
+  toggleFormDisplay:()=>void
+}
+
+function Footer({toggleFormDisplay}:Params) {
   const {total} = useContext(IndexContext)
   return (
     <Box sx={styles.footer} className="animation-fade-tb">
             <Typography>Total: ${total}</Typography>
-            <MyButton title="Proceed"/>
+            <MyButton click={toggleFormDisplay} title="Proceed"/>
     </Box>
   )
 }

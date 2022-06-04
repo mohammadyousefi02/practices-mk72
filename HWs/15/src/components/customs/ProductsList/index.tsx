@@ -1,11 +1,13 @@
 import React,{useContext} from 'react'
+
 import { IndexContext } from '../../../context/index';
-import ProductItem from '../ProductItem';
-import _ from "lodash";
-
-
 import {Iproduct} from "../../../interfaces"
+
+import ProductItem from '../ProductItem';
+
 import { Grid } from '@mui/material';
+
+import _ from "lodash";
 
 
 function ProductsList():JSX.Element{

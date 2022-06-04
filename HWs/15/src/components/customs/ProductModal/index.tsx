@@ -1,8 +1,10 @@
-import { Box, Typography } from '@mui/material'
 import React,{useContext} from 'react'
 import { Iproduct } from '../../../interfaces'
-import MyButton from '../MyButton'
 import {IndexContext} from "../../../context"
+
+import MyButton from '../MyButton'
+
+import { Box, Typography } from '@mui/material'
 
 interface Params {
     data:Iproduct
@@ -10,10 +12,9 @@ interface Params {
 
 function ProductModal({data}:Params):JSX.Element {
     const {addToCart,closeModal} = useContext(IndexContext)
-    console.log(data)
   return (
     <Box sx={styles.modal}>
-        <Box sx={styles.productModal} className="animation-fade">
+        <Box sx={styles.productModal} className="animation-fade-tb">
             <Box component="img" src={data?.url} sx={styles.cover}/>
             <Box sx={{flex:1,px:3,py:2,position:{sm:'static',xs:'relative'}}}>
                 <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:1}}>

@@ -1,9 +1,12 @@
-import { Box, Typography } from '@mui/material'
 import React,{useContext} from 'react'
-import MyButton from '../MyButton'
 
 import {Iproduct} from "../../../interfaces"
 import {IndexContext} from "../../../context"
+
+import MyButton from '../MyButton'
+
+import { Box, Typography } from '@mui/material'
+
 
 interface Params {
     data:Iproduct
@@ -16,7 +19,7 @@ function CartCard({data}:Params) {
     <Box sx={styles.card} className="animation-fade-lr">
             <Box sx={styles.cover} component="img" src={data.url} />
             <Box sx={styles.details}>
-                <Typography sx={{whiteSpace:'nowrap'}}>{data.description}</Typography>
+                <Typography sx={{textAlign:'center'}}>{data.description}</Typography>
                 <Box sx={styles.footer}>
                     <Box sx={styles.footerElems}>
                         <Typography>${data.price} x {data.amount}</Typography>
