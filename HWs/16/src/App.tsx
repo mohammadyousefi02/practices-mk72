@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SetupQuiz from './components/SetupQuiz';
+import {Routes,Route} from 'react-router-dom';
+import Quiz from './components/Quiz';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-full flex justify-center items-center">
+      <Routes>
+        <Route path="/" element={<SetupQuiz />} />
+        <Route path="/quiz" element={<Quiz />} />
+      </Routes>
     </div>
   );
 }

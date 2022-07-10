@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 
 import { IndexContext } from '../../../context/index';
 import {Iproduct} from "../../../interfaces"
@@ -11,17 +11,15 @@ import _ from "lodash";
 
 
 function ProductsList():JSX.Element{
-  const {data,filterValue,orderValue,setDatasLength} = useContext(IndexContext)
-  const filteredData = data.filter(d=>d.size.includes(filterValue))
-  setDatasLength(filteredData.length)
-  const orderedData = _.orderBy(filteredData,["price"],[orderValue === "asc" ? "asc" : 'desc'])
+
+  const {data} = useContext(IndexContext)
 
   return ( 
     <>
     <Grid container spacing={2} py={2}>
-        {orderedData.map((d:Iproduct):any=>(
+        {data.map((d:Iproduct):any=>(
           <Grid key={d.id} item md={4} xs={12} sm={6}>
-            <ProductItem data={d}/>
+            <ProductItem description={d.description} id={d.id} price={d.price} size={d.size} url={d.url}  />
           </Grid>
         ))}
     </Grid>

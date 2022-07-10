@@ -71,6 +71,7 @@ const todosSlice = createSlice({
                             }).toDays()
                         if(state.deadLineFilter === "all")state.filteredTodos.push(t)
                         else {
+                            console.log(dateDay > today)
                             if(state.deadLineFilter === "overdue" &&  dateDay<today)state.filteredTodos.push(t)
                             else if(state.deadLineFilter === "for today" && dateDay === today)state.filteredTodos.push(t)
                             else if(state.deadLineFilter === "for the future" && dateDay > today)state.filteredTodos.push(t)

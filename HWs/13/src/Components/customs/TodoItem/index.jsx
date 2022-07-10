@@ -21,9 +21,9 @@ const TodoItem = ({title,id,deleteFunc,editFunc}) => {
     return ( 
         <Box sx={[styles.todoDiv,{background:`linear-gradient(96deg, ${bgColors?.first}  0%, ${bgColors?.second} 100%)`,}]}>
             {title}
-            <Box sx={{display:'flex',gap:'2px',fontSize:'16px'}}>
-                <TiDeleteOutline className='cursor-pointer' onClick={()=>deleteFunc(id)} />
-                <BiEdit className='cursor-pointer' onClick={()=>editFunc(id)} />
+            <Box sx={{display:'flex',gap:'2px',}}>
+                <TiDeleteOutline style={{fontSize:"24"}} className='cursor-pointer' onClick={()=>deleteFunc(id)} />
+                <BiEdit style={{fontSize:"24"}} className='cursor-pointer' onClick={()=>editFunc(id)} />
             </Box>
         </Box>
      );
@@ -37,7 +37,7 @@ const styles = {
         borderRadius:1,
         alignItems: 'center',
         color:'#fff',
-        fontSize:"14px",
+        fontSize:"18px",
         my:1
     }
 }

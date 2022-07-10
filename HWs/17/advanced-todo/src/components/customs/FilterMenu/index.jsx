@@ -24,7 +24,7 @@ const deadLineOptions = [
     {value: 'all', title: 'All',id:1},
     {value: 'overdue', title: 'Overdue',id:2},
     {value: 'for today', title: 'For Today',id:3},
-    {value: 'for future', title: 'For The Future',id:4}
+    {value: 'for the future', title: 'For The Future',id:4}
 ]
 
 function FilterMenu() {

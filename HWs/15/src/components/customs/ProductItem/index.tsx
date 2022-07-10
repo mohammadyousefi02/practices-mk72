@@ -8,12 +8,13 @@ import MyButton from '../MyButton'
 import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
 
-interface Props {
-    data:Iproduct
+interface Props extends Iproduct {
+    
 }
 
-function ProductItem({data}:Props):JSX.Element {
+function ProductItem({...data}:Props):JSX.Element {
   const {addToCart,showModalHandler} = useContext(IndexContext)
+  console.log(data)
   return (
     <Box sx={styles.productItem} className="animation-fade-tb">
         <Box component="img" src={data.url} sx={styles.img} onClick={()=>showModalHandler(data)}/>

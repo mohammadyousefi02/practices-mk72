@@ -33,11 +33,13 @@ export default function Home({posts}:Props) {
             <div className='flex flex-col gap-8'>
               {posts?.map(post => (
                 <Link key={post._id} href={{pathname:'/posts/[name]',query:{id:''+post._id}}} as={`posts/${post.title.split(" ").join("-")}`}>
-                  <div className='cursor-pointer flex flex-col gap-1'>
-                    <h1 className='text-[28px] font-black'>{post.title}</h1>
-                    <time className='text-[#9a9a9a]'>{post.date}</time>
-                    <p className='text-[20px]'>{post.preface}</p>
-                  </div>
+                  <a>
+                    <div className='cursor-pointer flex flex-col gap-1'>
+                      <h1 className='text-[28px] font-black'>{post.title}</h1>
+                      <time className='text-[#9a9a9a]'>{post.date}</time>
+                      <p className='text-[20px]'>{post.preface}</p>
+                    </div>
+                  </a>
                 </Link>
               ))}
             </div>

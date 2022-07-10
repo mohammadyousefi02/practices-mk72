@@ -67,7 +67,7 @@ function SetupQuiz():JSX.Element {
             </div>
             <SelectInput name='Category' optionList={categories} value={category}  onChange={(e:ChangeEvent<HTMLSelectElement>)=>setCategory(e.target.value)}/>
             <SelectInput name='difficulty' optionList={difficulties} value={difficulty}  onChange={(e:ChangeEvent<HTMLSelectElement>)=>setDifficulty(e.target.value)}/>
-            <MyButton func={startQuiz} title="Start"/>
+            <MyButton className='py-1' func={startQuiz} title="Start"/>
             {error}
         </div>
     </div>

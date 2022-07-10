@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
     title: String,
@@ -9,4 +9,5 @@ const postSchema = new mongoose.Schema({
 
 const Posts = mongoose.models.Posts || mongoose.model("Posts",postSchema)
 
-export default Posts
+// export default Posts;
+module.exports = Posts;

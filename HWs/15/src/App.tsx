@@ -27,6 +27,14 @@ function App() {
   const [filterValue,setFilterValue] = useState<string>("ALL")
   const [orderValue,setOrderValue] = useState<string>("asc")
   const [datasLength,setDatasLength] = useState<number>(0)
+  const [filteredProduct,setFilteredProduct] = useState<TproductsList>([])
+
+  useEffect(()=>{
+    const filteredData = data.filter(d=>d.size.includes(filterValue))
+    setDatasLength(filteredData.length)
+    const orderedData = _.orderBy(filteredData,["price"],[orderValue === "asc" ? "asc" : 'desc'])
+    setFilteredProduct(orderedData)
+  },[orderValue,filterValue])
 
   useEffect(()=>{
     const copyData:TproductsList = [...data]
@@ -49,6 +57,29 @@ function App() {
   function changeOrder(value:string){
     setOrderValue(value)
   }
+
+
+   interface Obj1 {
+    id:String,
+    name:String
+}
+
+
+const obj1:Obj1 = {
+    id:"1",
+    name:"test"
+}
+
+ interface Obj2 {
+    id:Number,
+    name?:String
+}
+
+const obj2:Obj2 = {id:1}
+
+for(let key in obj1){
+    console.log(key)
+}
 
 
 
@@ -95,8 +126,8 @@ function App() {
     setCheckTotal(!checkTotal)
   }
   return (
-    <IndexContext.Provider value={{data:productsData,addToCart,cartList,removeHandler,total,closeModal,showModalHandler,filterValue,changeFilter,orderValue,changeOrder,setDatasLength,datasLength}}>
-      <Box sx={styles.main}>
+    <IndexContext.Provider value={{data:filteredProduct,addToCart,cartList,removeHandler,total,closeModal,showModalHandler,filterValue,changeFilter,orderValue,changeOrder,setDatasLength,datasLength}}>
+      {/* <Box sx={styles.main}>
         <Header/>
         <Container sx={{flex:1}}>
           <Grid container justifyContent="center">
@@ -110,7 +141,7 @@ function App() {
         </Container>
         <Footer/>
       </Box>
-      {showModal && <ProductModal data={clickedProduct}/>}
+      {showModal && <ProductModal data={clickedProduct}/>} */}
     </IndexContext.Provider>
   );
 }

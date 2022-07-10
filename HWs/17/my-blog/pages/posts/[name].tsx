@@ -6,11 +6,11 @@ import Head from '../../node_modules/next/head'
 import Link from '../../node_modules/next/link'
 import { Ipost } from '../../interfaces/index'
 
-interface Props {
-    post:Ipost
+interface Props extends Ipost {
+    a:string
 }
 
-export default function Post({post}:Props) {
+export default function Post({a,...post}:Props) {
 
   return (
     <>

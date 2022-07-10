@@ -1,13 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import MainLayout from '../src/layout/MainLayout'
-import styles from '../styles/Home.module.css'
 import useUserToken from "../hooks/useUserToken"
 import { useRouter } from 'next/router'
-import { server } from '../config/server'
-import axios from 'axios'
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -22,12 +18,12 @@ const Home: NextPage = () => {
       </Head>
 
       <MainLayout height='h-[92%]'>
-        <div className='h-full flex flex-col justify-center items-center gap-4'>
+        <div className='h-full flex flex-col justify-center items-center gap-4 md:px-[100px]'>
           <Link href="/login">
-            <button  className='bg-[#2352C3] w-full py-2 rounded-lg'>ورود</button>
+            <button  className='bg-[#2352C3] w-full py-2 md:py-4 rounded-lg'>ورود</button>
           </Link>
           <Link href={"/register"}>
-            <button className='bg-[#2352C3] w-full py-2 rounded-lg'>ثبت نام</button>
+            <button className='bg-[#2352C3] w-full py-2 md:py-4 rounded-lg'>ثبت نام</button>
           </Link>
         </div>
       </MainLayout>

@@ -63,7 +63,7 @@ const TodoList = () => {
         }
     }
 
-    function handleBtns(){
+     function HandleBtns(){
         return(
             isEditing ? <MyButton title="update" func={editTodoHandler}/> : 
             <MyButton title="add" func={addTodo}/>
@@ -79,7 +79,7 @@ const TodoList = () => {
         <ToastContainer
         autoClose={2000}/>
         <Box sx={styles.boxStyle}>
-            <MainTodoListSection title={title} change={handleChangeInput} buttons={handleBtns}/>
+            <MainTodoListSection title={title} change={handleChangeInput} Buttons={HandleBtns}/>
             <Box>
                 {todos.map(todo=>(
                     <TodoItem title={todo.title} id={todo.id} editFunc={editTodoBtn} deleteFunc={deleteTodo} key={todo.id}/>
@@ -94,7 +94,7 @@ const TodoList = () => {
 const styles = {
     boxStyle:{
         boxShadow: 10,
-        width: '18rem',
+        width: '25rem',
         bgcolor:'#171A2B',
         borderRadius: '8px',
         pt:2,

@@ -1,13 +1,17 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 
 
 
-export default function TableBtn({Icon,color="#DA3544",hoverColor="#bb2d3b"}) {
-    console.log(color,hoverColor)
-    const btnClass = `bg-[${color}] hover:bg-[${hoverColor}] py-1 px-2 rounded`
-
+export default function TableBtn({Icon,color="",...prop}) {
+    const btnClass = `${color === "blue" ? "bg-[#0d6efd] hover:bg-[#0b5ed7]":
+        color === "gray" ?  "bg-[#6c757d] hover:bg-[#5c636a]":
+        "bg-[#DA3544] hover:bg-[#bb2d3b]" 
+    }  py-1 px-2 rounded`
     return (
-        <button className={btnClass}><Icon/></button>
+        <>
+            <button className={btnClass} {...prop}><Icon/></button>
+        </>
     )
 }
+

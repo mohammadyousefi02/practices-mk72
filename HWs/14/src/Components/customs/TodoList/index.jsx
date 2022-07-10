@@ -13,7 +13,7 @@ import MyButton from '../MyButton';
 
 
 import "./todoList.css"
-import { selectUnstyledClasses } from '@mui/base';
+
 
 const TodoList = () => {
     const[title,setTitle] = useState("");
@@ -26,12 +26,10 @@ const TodoList = () => {
     }
 
     function saveToLocal(){
-        localStorage.setItem("todos",JSON.stringify(todos))
-       
+        localStorage.setItem("todos",JSON.stringify(todos))  
     }
 
     useEffect(()=>{
-        console.log(todos)
         saveToLocal()
     },[todos])
 
@@ -94,7 +92,7 @@ const TodoList = () => {
         <Box sx={styles.boxStyle}>
             <MainTodoListSection title={title} change={handleChangeInput} buttons={handleBtns}/>
             <Box>
-                {todos?.map(todo=>(
+                {todos.map(todo=>(
                     <TodoItem title={todo.title} id={todo.id} editFunc={editTodoBtn} deleteFunc={deleteTodo} key={todo.id}/>
                 ))}
             </Box>
