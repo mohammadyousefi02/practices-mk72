@@ -24,6 +24,7 @@ function Tickets() {
     const router = useRouter()
     const userInfo = useGetDecodedToken()
     const [token] = useUserToken()
+    const [error,setError] = useState(false)
     const [onlineAdmins,setOnlineAdmins] = useState(0)
     if(!token) {
         router.push('/')
@@ -51,16 +52,23 @@ function Tickets() {
     const [subject, setSubject] = useState('')
     const [message, setMessage] = useState('')
     const addNewTicket = () => {
-        addNewTicketHandler({supportUnit,subject,message},token,setSupportUnit,setSubject,setMessage,userInfo,setUser,dispatch)
+        if(supportUnit && subject && message){
+            addNewTicketHandler({supportUnit,subject,message},token,setSupportUnit,setSubject,setMessage,userInfo,setUser,dispatch)
+            setError(false)
+        }else{
+            setError(true)
+        }
     }
   return (
     <MainLayout>
         <div className='px-4 pb-4 bg-[#293145] h-full rounded-lg flex flex-col'>
             {!userInfo?.isAdmin && <TicketPageHeader unseenedMessages={unseenedMessages!} onlineAdmins={onlineAdmins!}/>}
-            <TicketCardsHeader/>
-            {userInfo?.isAdmin ? <TicketCards tickets={adminTickets}/> : <TicketCards userTickets={userTicketsList}/>}
+            <div className='overflow-x-auto mt-4'>
+                <TicketCardsHeader/>
+                {userInfo?.isAdmin ? <TicketCards tickets={adminTickets}/> : <TicketCards userTickets={userTicketsList}/>}
+            </div>
             <PaginationFooter/>
-            {!userInfo.isAdmin && <TicketForm subject={subject} setSubject={setSubject} setSupportUnit={setSupportUnit} message={message}
+            {!userInfo.isAdmin && <TicketForm error={error} subject={subject} setSubject={setSubject} setSupportUnit={setSupportUnit} message={message}
                 setMessage={setMessage} addNewTicketHandler={addNewTicket}
             />}
         </div>
